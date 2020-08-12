@@ -1,5 +1,9 @@
 # On premise single-sign-on using Azure as an Identity Provider
 
+## Prelude
+
+Ensure you have a /etc/hosts entry for `idptestbed` point to your docker host.
+
 ## Creating the Azure AD asset
 
 1. Go to [portal.azure.com](https://portal.azure.com/#allservices) and go to Active Directory
