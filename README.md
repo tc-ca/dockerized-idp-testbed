@@ -8,9 +8,9 @@ Uses the Unicon Shibboleth SP docker image:
 
 We needed a way to have our application proxied such that anyone who accessed certain resources would be guaranteed to be authenticated.
 
-Using Shibboleth as a Service Provider, this example has the /protected path which will force users to a Microsoft sign in page before allowing them access.
+Using Shibboleth as a Service Provider, this example repo has the `https://idptestbed/protected` url which will force users to a Microsoft sign in page before allowing them access.
 
-This gives many benefits:
+This approach gives many benefits:
 
 - Allow some pages to remain open
 
