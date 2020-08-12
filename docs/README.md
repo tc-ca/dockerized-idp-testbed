@@ -1,0 +1,113 @@
+# On premise single-sign-on using Azure as an Identity Provider
+
+## Creating the Azure AD asset
+
+1. Go to [portal.azure.com](https://portal.azure.com/#allservices) and go to Active Directory
+
+![](./assets/firefox_9UthQ3XBwu.png)
+
+2. On the left nav, go to Enterprise Applications
+
+![](./assets/firefox_T3tRel0OTb.png)
+
+3. Click "New application"
+
+![](./assets/firefox_CwFbMiSC7K.png)
+
+
+4. Pick "Non-gallery application"
+
+![](./assets/firefox_bgcWkywgB4.png)
+
+5. Pick a name and click "Add" on the bottom left of the page
+
+![](./assets/firefox_CDGWutRTqb.png)
+
+6. Go to users and groups
+
+![](./assets/firefox_qqVk1pstUv.png)
+
+7. Click on "Add user"
+
+![](./assets/firefox_MLsVGetfTZ.png)
+
+
+
+## Configuring SP
+
+1. Go to the "Single sign-on" page for your enterprise application
+
+![](./assets/firefox_uNlwmCma8i.png)
+
+
+2. Pick "SAML"
+
+![](./assets/firefox_ikpPVqNW7Z.png)
+
+3. Download the azure metadata
+
+![](./assets/firefox_IF5QG8TfHJ.png)
+
+4. Replace the contents of [sp/etc-shibboleth/idp-metadata.xml](../sp/etc-shibboleth-idp.metadata.xml) with the downloaded metadata
+
+5. Add the scope declaration to the idp metadata
+
+Add the schema definition as an attribute of the `EntityDescriptor` tag
+
+![](./assets/Code_-_Insiders_YmtacwnJ3Q.png)
+
+```xml
+xmlns:shibmd="urn:mace:shibboleth:metadata:1.0"
+```
+
+Add the scope extension under the `IDPSSODescriptor` tag
+
+![](./assets/Code_-_Insiders_Msj2W91vkG.png)
+
+```xml
+		<Extensions>
+			<shibmd:Scope regexp="false">034gc.onmicrosoft.com</shibmd:Scope>
+		</Extensions>
+```
+
+## Configuring Azure
+
+1. Go to the claims edit page
+
+![](./assets/firefox_kDNnSrp0VL.png)
+
+2. Add a new claim
+
+![](./assets/firefox_h06GOcQIwm.png)
+
+3. Configure the attributes of the claim
+
+Name: `sAMAccountName`
+
+Namespace: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`
+
+Source attribute: `user.userprincipalname`
+
+![](./assets/firefox_UXVmUdj7UR.png)
+
+4. Start the SP and download the metadata from [http://idptestbed/Shibboleth.sso/Metadata](http://idptestbed/Shibboleth.sso/Metadata)
+
+The SP can be started by running `docker-compose up --build`
+
+5. Upload the downloaded metadata to azure
+
+![](./assets/firefox_YOkGNPlx7y.png)
+
+6. Save the default upload configuration
+
+![](./assets/firefox_NZED5jERUH.png)
+
+## Test the setup
+
+1. Under the SAML Single Sign On settings for the enterprise application, scroll down and click "Test"
+
+![](./assets/firefox_X3nNqWdr8c.png)
+
+2. Test signing on as current user
+
+![](./assets/firefox_kpBleHlknc.png)

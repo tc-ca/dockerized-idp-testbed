@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EntityDescriptor ID="_41c9c6b9-4784-4ebd-982d-439c98f4a31a" entityID="https://sts.windows.net/48a1587f-f5ec-4970-a5d0-efc592c50dc0/"
-	xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+	xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
+	xmlns:shibmd="urn:mace:shibboleth:metadata:1.0">
+
 	<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
 		<SignedInfo>
 			<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
@@ -166,6 +168,9 @@
 		</fed:PassiveRequestorEndpoint>
 	</RoleDescriptor>
 	<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+		<Extensions>
+			<shibmd:Scope regexp="false">034gc.onmicrosoft.com</shibmd:Scope>
+		</Extensions>
 		<KeyDescriptor use="signing">
 			<KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
 				<X509Data>
