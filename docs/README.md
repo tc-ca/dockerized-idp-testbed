@@ -129,3 +129,11 @@ The SP can be started by running `docker-compose up --build`
 ![](./assets/firefox_qDHJxYBH2q.png)
 
 If it's not set, double check the shibmd:scope in the idp-metadata.xml file
+
+## Conclusion
+
+<span style="font-size:32px;text-decoration:underline;">Congratulations!</span>
+
+You now have a working Service Provider that uses Azure for logins.
+
+You can now use azure for your users, including being able to force MFA for your service.
