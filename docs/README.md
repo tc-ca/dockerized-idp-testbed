@@ -31,7 +31,9 @@
 
 ![](./assets/firefox_MLsVGetfTZ.png)
 
+8. Click on "Users and groups", and select your account, then hit "Assign" in the bottom left
 
+![](./assets/firefox_dM02qR4Eiy.png)
 
 ## Configuring SP
 
@@ -69,6 +71,10 @@ Add the scope extension under the `IDPSSODescriptor` tag
 			<shibmd:Scope regexp="false">034gc.onmicrosoft.com</shibmd:Scope>
 		</Extensions>
 ```
+
+6. Replace the entity id in shibboleth2.xml with the one from the top of the azure metadata
+
+![](./assets/Code_-_Insiders_mUNftJivLx.png)
 
 ## Configuring Azure
 
@@ -111,3 +117,10 @@ The SP can be started by running `docker-compose up --build`
 2. Test signing on as current user
 
 ![](./assets/firefox_kpBleHlknc.png)
+
+3. It should navigate you to the landing page
+
+![](./assets/firefox_sxsFul73eh.png)
+
+4. Click the link to be brought to the phpinfo page
+
