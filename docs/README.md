@@ -62,7 +62,7 @@ Add the schema definition as an attribute of the `EntityDescriptor` tag
 xmlns:shibmd="urn:mace:shibboleth:metadata:1.0"
 ```
 
-Add the scope extension under the `IDPSSODescriptor` tag
+Add the scope extension under the `IDPSSODescriptor` tag to match your onmicrosoft name. This example uses `034gc`
 
 ![](./assets/Code_-_Insiders_Msj2W91vkG.png)
 
@@ -124,3 +124,8 @@ The SP can be started by running `docker-compose up --build`
 
 4. Click the link to be brought to the phpinfo page
 
+5. Ensure that the REMOTE_USER variable is being set
+
+![](./assets/firefox_qDHJxYBH2q.png)
+
+If it's not set, double check the shibmd:scope in the idp-metadata.xml file

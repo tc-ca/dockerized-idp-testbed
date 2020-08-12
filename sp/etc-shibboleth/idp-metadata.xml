@@ -169,7 +169,7 @@
 	</RoleDescriptor>
 	<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 		<Extensions>
-			<shibmd:Scope regexp="false">034gc.onmicrosoft.com</shibmd:Scope>
+			<shibmd:Scope regexp="false">corporatedatapathfindertest.onmicrosoft.com</shibmd:Scope>
 		</Extensions>
 		<KeyDescriptor use="signing">
 			<KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
