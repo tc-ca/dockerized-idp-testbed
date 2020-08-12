@@ -1,4 +1,4 @@
-# dockerized-idp-testbed
+# On premise SSO with Azure, Docker, and Shibboleth
 
 Uses the Unicon Shibboleth SP docker image:
 
