@@ -26,7 +26,7 @@ docker run\
 		-o /app\
 		-y 3\
 		-h $hostname\
-		-e https://$hostname/shibboelth;
+		-e https://$hostname/shibboleth;
 
 echo "Adjusting key file permissions";
 chmod ugo+r secrets/sp-cert.pem;
