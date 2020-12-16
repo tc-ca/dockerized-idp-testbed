@@ -112,6 +112,13 @@ The SP can be started by running `docker-compose up --build`
 
 ![](./assets/firefox_NZED5jERUH.png)
 
+7. Configure the logout URL
+
+Make sure Azure didn't grab the wrong logout url from the metadata.  
+It should be the Redirect url, NOT the SOAP one.
+
+https://stackoverflow.com/questions/64144428/opensamlbindingexception-when-logging-out-of-a-shibboleth-service-provider-wit/64144429#64144429
+
 ## Test the setup
 
 1. Under the SAML Single Sign On settings for the enterprise application, scroll down and click "Test"
